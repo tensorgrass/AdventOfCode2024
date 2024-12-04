@@ -19,7 +19,6 @@ int main()
     // freopen("error41.txt", "r", stdin);
     string line;
     int total = 0;
-    bool enable = true;
     
     vector<string> v;    
     while(getline(cin, line))

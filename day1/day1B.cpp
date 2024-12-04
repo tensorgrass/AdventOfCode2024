@@ -15,6 +15,9 @@ int main()
         v1.push_back(a);
         v2.push_back(b);
     }
+    //close the file
+    fclose(stdin);
+
     std::sort(v1.begin(), v1.end());
     std::sort(v2.begin(), v2.end());
 
@@ -37,10 +40,11 @@ int main()
         sum2 += v1[i] * count1;
     }
 
-    cout << "Total value ocurrences: " << sum2 << endl;
+
+
+    cout << "Total: " << sum2 << endl;
     
-    //close the file
-    fclose(stdin);
+
     //SOLUTION: 21024792
 
 }

@@ -6,10 +6,10 @@
 using namespace std;
 
 #define LOG_OPERACIONES_BASICAS
-#define LOG_OPERACIONES_BASICAS_HORIZONTALES
-#define LOG_OPERACIONES_BASICAS_VERTICALES
-#define LOG_OPERACIONES_BASICAS_DIAGONALES_ABAJO
-#define LOG_OPERACIONES_BASICAS_DIAGONALES_ARRIBA
+#define LOG_OPERACIONES_BASICAS_MAS_MAS
+#define LOG_OPERACIONES_BASICAS_SAM_SAM
+#define LOG_OPERACIONES_BASICAS_MAS_SAM
+#define LOG_OPERACIONES_BASICAS_SAM_MAS
 
 #define LOG_TOTALES_INTERMEDIOS
 
@@ -19,7 +19,6 @@ int main()
     // freopen("error1.txt", "r", stdin);
     string line;
     int total = 0;
-    bool enable = true;
     
     vector<string> v;    
     while(getline(cin, line))
@@ -41,28 +40,28 @@ int main()
             if (v[i][j] == 'M' && v[i+1][j + 1] == 'A' && v[i + 2][j + 2] == 'S' &&
                 v[i][j+2] == 'M' && v[i + 1][j + 1] == 'A' && v[i + 2][j] == 'S') {
                 total_mas_mas++;
-                #ifdef LOG_OPERACIONES_BASICAS_HORIZONTALES
+                #ifdef LOG_OPERACIONES_BASICAS_MAS_MAS
                   printf("Encontrado MAS MAS en la linea %d posicion %d con total %d\n", i, j, total_mas_mas);
                 #endif
             }
             if (v[i][j] == 'S' && v[i + 1][j + 1] == 'A' && v[i+ 2][j + 2] == 'M' &&
                 v[i][j+2] == 'S' && v[i + 1][j + 1] == 'A' && v[i+ 2][j] == 'M') {
                 total_sam_sam++;
-                #ifdef LOG_OPERACIONES_BASICAS_HORIZONTALES
+                #ifdef LOG_OPERACIONES_BASICAS_SAM_SAM
                   printf("Encontrado SAM SAM en la linea %d posicion %d con total %d\n", i, j, total_sam_sam);
                 #endif
             }
             if (v[i][j] == 'M' && v[i + 1][j + 1] == 'A' && v[i+ 2][j + 2] == 'S' &&
                 v[i][j+2] == 'S' && v[i + 1][j + 1] == 'A' && v[i+ 2][j] == 'M') {
                 total_mas_sam++;
-                #ifdef LOG_OPERACIONES_BASICAS_HORIZONTALES
+                #ifdef LOG_OPERACIONES_BASICAS_MAS_SAM
                   printf("Encontrado MAS SAM en la linea %d posicion %d con total %d\n", i, j, total_mas_sam);
                 #endif
             }
             if (v[i][j] == 'S' && v[i + 1][j + 1] == 'A' && v[i+ 2][j + 2] == 'M' &&
                 v[i][j+2] == 'M' && v[i + 1][j + 1] == 'A' && v[i+ 2][j] == 'S') {
                 total_sam_mas++;
-                #ifdef LOG_OPERACIONES_BASICAS_HORIZONTALES
+                #ifdef LOG_OPERACIONES_BASICAS_SAM_MAS
                   printf("Encontrado SAM MAS en la linea %d posicion %d con total %d\n", i, j, total_sam_mas);
                 #endif
             }
