@@ -1,0 +1,76 @@
+#include <iostream>     // std::cout
+#include <vector>       // std::vector
+#include <string>
+#include <algorithm>    // std::sort1
+
+using namespace std;
+
+#define LOG_OPERACIONES_BASICAS
+#define LOG_LINEAS_INCORRECTAS
+
+int main()
+{
+    freopen("input.txt", "r", stdin);
+    // freopen("error1.txt", "r", stdin);
+    string line;
+    int total = 0;
+
+    while(getline(cin, line))
+    {
+        #ifdef LOG_OPERACIONES_BASICAS
+            printf("Numero de caracteres de la linea: %d\n", line.size());
+        #endif
+        int total_caracteres = line.size();
+        for (int i = 0; i < total_caracteres - 7; i++) {
+            int j = i;
+            bool operacion_encontrada = false;
+            int primer_numero = 0;
+            int segundo_numero = 0;
+            #ifdef LOG_OPERACIONES_BASICAS
+                printf("Operacion: %c%c%c%c\n", line[i], line[i + 1], line[i + 2], line[i + 3]);
+            #endif
+            if (line[j] == 'm' && line[j + 1] == 'u' && line[j + 2] == 'l' && line[j + 3] == '(') {
+                #ifdef LOG_OPERACIONES_BASICAS
+                    printf("Encontrado mul(\n");
+                #endif
+                j = j + 4;
+                if (j < total_caracteres && (line[j] == '0' || line[j] == '1' || line[j] == '2' || line[j] == '3' || line[j] == '4' || line[j] == '5' || line[j] == '6' || line[j] == '7' || line[j] == '8' || line[j] == '9')) {
+                    primer_numero = line[j] - '0';
+                    j++;
+                    if (j < total_caracteres && (line[j] == '0' || line[j] == '1' || line[j] == '2' || line[j] == '3' || line[j] == '4' || line[j] == '5' || line[j] == '6' || line[j] == '7' || line[j] == '8' || line[j] == '9')) {
+                        primer_numero = primer_numero * 10 + (line[j] - '0');
+                        j++;
+                        if (j < total_caracteres && (line[j] == '0' || line[j] == '1' || line[j] == '2' || line[j] == '3' || line[j] == '4' || line[j] == '5' || line[j] == '6' || line[j] == '7' || line[j] == '8' || line[j] == '9')) {
+                            primer_numero = primer_numero * 10 + (line[j] - '0');
+                            j++;
+                        }
+                    }
+
+                    if (j < total_caracteres && (line[j] == ',')) {
+                        j++;
+                        if (j < total_caracteres && (line[j] == '0' || line[j] == '1' || line[j] == '2' || line[j] == '3' || line[j] == '4' || line[j] == '5' || line[j] == '6' || line[j] == '7' || line[j] == '8' || line[j] == '9')) {
+                            segundo_numero = line[j] - '0';
+                            j++;
+                            if (j < total_caracteres && (line[j] == '0' || line[j] == '1' || line[j] == '2' || line[j] == '3' || line[j] == '4' || line[j] == '5' || line[j] == '6' || line[j] == '7' || line[j] == '8' || line[j] == '9')) {
+                                segundo_numero = segundo_numero * 10 + (line[j] - '0');
+                                j++;
+                                if (j < total_caracteres && (line[j] == '0' || line[j] == '1' || line[j] == '2' || line[j] == '3' || line[j] == '4' || line[j] == '5' || line[j] == '6' || line[j] == '7' || line[j] == '8' || line[j] == '9')) {
+                                    segundo_numero = segundo_numero * 10 + (line[j] - '0');
+                                    j++;
+                                }
+                            }
+                            if (j < total_caracteres && (line[j] == ')')) {
+                                operacion_encontrada = true;
+                            }
+                        }
+                    }
+                }
+            }
+            if (operacion_encontrada) {
+                printf("Operacion encontrada: %d * %d\n", primer_numero, segundo_numero);
+                total = total + (primer_numero * segundo_numero);
+            }
+        }
+    }
+    printf("Total: %d\n", total);
+}
