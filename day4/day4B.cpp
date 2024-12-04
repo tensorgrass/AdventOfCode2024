@@ -29,6 +29,8 @@ int main()
         #endif
         v.push_back(line);
     }
+    // cerrar el fichero
+    fclose(stdin);
     
     int total_mas_mas = 0;
     int total_sam_sam = 0;
@@ -68,11 +70,9 @@ int main()
     }
     total += total_mas_mas + total_sam_sam + total_mas_sam + total_sam_mas;
     #ifdef LOG_TOTALES_INTERMEDIOS
-        printf("Total de XMAS mas mas: %d, sam sam: %d con total %d\n", total_mas_mas, total_sam_sam, total);
+        printf("Total de XMAS mas mas: %d, sam sam: %d mas sam: %d sam mas: %d con total %d\n", total_mas_mas, total_sam_sam, total_mas_sam, total_sam_mas, total);
     #endif
 
-
-    
-
     printf("Total de XMAS: %d\n", total);
+    //SOLUCION: 1992
 }

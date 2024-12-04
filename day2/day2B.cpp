@@ -13,7 +13,9 @@ using namespace std;
 
 int main()
 {
+    // Lee el fichero input.txt
     freopen("input.txt", "r", stdin);
+    // freopen("error6.txt", "r", stdin);
     int num_linea = 0;
     string line;
     int valid = 0;
@@ -25,6 +27,7 @@ int main()
         #endif
         num_linea++;
         vector<int> numbers_original;
+
         string temp = "";
         for (int i = 0; i < line.size(); i++) {
             if (line[i] == ' ') {
@@ -133,12 +136,12 @@ int main()
                     printf("%d ", numbers_original[i]);
                 }
                 printf("\n");
-
-
             #endif
         }
     }
+    //cerrar el archivo
+    fclose(stdin);
+    
     printf("Numero de lineas validas con safe: %d\n", valid);
-
-
+    //SOLUCION 689
 }

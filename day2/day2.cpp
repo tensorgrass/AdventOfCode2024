@@ -16,14 +16,14 @@ int main()
     string line;
     int valid = 0;
 
-    while(getline(cin, line))
-    {
+    while(getline(cin, line)) {
         bool linea_incrementando = true;
         bool linea_decrementando = true;
 
         printf("Inicio linea %d: %s\n", num_linea, line.c_str());
         num_linea++;
         vector<int> numbers;
+
         string temp = "";
         for (int i = 0; i < line.size(); i++) {
             if (line[i] == ' ') {
@@ -100,7 +100,11 @@ int main()
             }
         }
     }
+    //cerrar el archivo
+    fclose(stdin);
+
     printf("Numero de lineas validas: %d\n", valid);
+    //SOLUCION 660
 
 
 }

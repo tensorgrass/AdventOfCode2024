@@ -1,0 +1,10 @@
+
+/day1/.vscode
+*.code-workspace
+*.exe
+*.ilk
+*.obj
+*.pdb
+/day2/.vscode
+/day3/.vscode
+/day4/.vscode

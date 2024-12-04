@@ -29,6 +29,8 @@ int main()
         #endif
         v.push_back(line);
     }
+    // close the file
+    fclose(stdin);
     
     int total_horizontal = 0;
     int total_horizontal_invertido = 0;
@@ -124,4 +126,5 @@ int main()
     #endif
 
     printf("Total de XMAS: %d\n", total);
+    //SOLUCION 2571
 }

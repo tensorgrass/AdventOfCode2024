@@ -24,16 +24,23 @@ int main()
     int sum = 0;
     for (int i = 0; i < v1.size(); i++)
     {
-        cout << v1[i] << " " << v2[i] << " " << abs(v1[i] - v2[i]) << endl;
+        // cout << v1[i] << " " << v2[i] << " " << abs(v1[i] - v2[i]) << endl;
         sum += abs(v1[i] - v2[i]);
     }
     cout << sum << endl;
 
+    int sum2 = 0;
+    for (int i = 0; i < v1.size(); i++)
+    {
+        int count1 = count(v2.begin(), v2.end(), v1[i]);
+        cout << "v1 value: " << v1[i] << " num ocurrences: " << count1 << endl;
+        sum2 += v1[i] * count1;
+    }
 
-    cout << "Total value ocurrences: " << sum << endl;
+    cout << "Total value ocurrences: " << sum2 << endl;
     
     //close the file
     fclose(stdin);
-    //SOLUTION: 1879048
+    //SOLUTION: 21024792
 
 }
