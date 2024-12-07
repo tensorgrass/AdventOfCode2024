@@ -1,7 +1,7 @@
 #include <iostream>     // std::cout
 #include <vector>       // std::vector
 #include <string>
-#include <algorithm>    // std::sort1
+#include <chrono>       // std::chrono
 
 using namespace std;
 
@@ -13,6 +13,7 @@ using namespace std;
 // #define LOG_LOOP_ENCONTRADO
 int main()
 {
+    auto start = std::chrono::steady_clock::now();
     freopen("input.txt", "r", stdin);
     // freopen("testB1.txt", "r", stdin);
     string line;
@@ -264,8 +265,8 @@ int main()
         }
     }
     
-
+    std::cout << std::chrono::duration<double, std::milli>(std::chrono::steady_clock::now() - start).count() << " ms" << std::endl;
     printf("Total infinite loops encontrados: %d\n", total);
-    //SOLUCION: 
+    //SOLUCION: 1304
 }
 
