@@ -157,8 +157,8 @@ int main()
         
     
     std::cout << std::chrono::duration<double, std::milli>(std::chrono::steady_clock::now() - start).count() << " ms" << std::endl;
-    printf("Total cuadros recorridos: %llu\n", total);
-    cout << "Total cuadros recorridos: " << total << endl;
+    printf("Total test values: %llu\n", total);
+    cout << "Total test values: " << total << endl;
     //SOLUCION: 97902809384118
 
 
