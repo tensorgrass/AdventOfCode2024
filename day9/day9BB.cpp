@@ -67,7 +67,7 @@ int main()
         int i_fin = num_colums;
         int max_space_size = 10;
         int primer_espacio_libre = 0;
-        for (int fn = file_number; fn >= 0; fn--){
+        for (int fn = file_number - 1; fn >= 0; fn--){
             for (int i = i_fin - 1; i >=0; i--) {
                 if (map[i] == fn) {
                     int i_ini = i;

@@ -63,18 +63,25 @@ int main()
             printf("Num colums: %i\n", num_colums);
         #endif
         int file_size_tmp = 0;
-        for (int fn = file_number - 1; fn >= 0; fn--){
-            for (int i = 0; i < num_colums; i++) {
-                if (map[i] == fn) {
-                    int i_ini = i;
-                    int i_fin = i;
-                    file_size_tmp = 1;
-                    while (map[i+1] == fn) {
-                        i++;
-                        i_fin = i;
-                        file_size_tmp++;
-                    }
-                    for (int j = 0; j < i; j++) {
+        int i_ini = 0;
+        int i_fin = num_colums;
+        int max_space_size = 10;
+        int primer_espacio_libre = 0;
+        int fn = file_number - 1;
+        for (int i = i_fin - 1; i >=0; i--) {
+            if (map[i] == fn) {
+                int i_ini = i;
+                int i_fin = i;
+                file_size_tmp = 1;
+                while (map[i-1] == fn) {
+                    i--;
+                    i_ini = i;
+                    file_size_tmp++;
+                }
+                if (file_size_tmp <= max_space_size) {
+                    max_space_size = 0;
+                    bool is_primer_espacio_libre = true;
+                    for (int j = is_primer_espacio_libre; j < i; j++) {
                         if (map[j] < 0) {
                             int j_ini = j;
                             int j_fin = j;
@@ -106,12 +113,24 @@ int main()
                                     }
                                     printf("\n");
                                 #endif
+                                max_space_size = 10;
                                 break;
                             }
+                            else {
+                                if (space_size > max_space_size) {
+                                    max_space_size = space_size;
+                                }
+                            }
+                        }
+                        else {
+                            if (is_primer_espacio_libre) {
+                                primer_espacio_libre = j;
+                            }
+                            is_primer_espacio_libre = false;
                         }
                     }
-                    break;
                 }
+                fn--;
             }
         }
         #ifdef LOG_CALCULOS
