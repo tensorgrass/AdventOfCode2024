@@ -1,0 +1,8 @@
+Windows
+
+Abrir la consola de "Developer command prompt for visual studio"
+
+cd c:\AdventOfCode2024
+mkdir day1
+cd day1
+code .

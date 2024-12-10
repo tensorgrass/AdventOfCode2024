@@ -85,8 +85,10 @@ auto start = std::chrono::steady_clock::now();
             #endif
         }     
     } 
+    // cerrar el fichero
+    fclose(stdin);
     
-    std::cout << std::chrono::duration<double, std::milli>(std::chrono::steady_clock::now() - start).count() << " ms" << std::endl;
+    std::cout << "Total: "<< std::chrono::duration<double, std::milli>(std::chrono::steady_clock::now() - start).count() << " ms" << std::endl;
     printf("Total operaciones validas: %llu\n", total);
     cout << "Total operaciones validas: " << total << endl;
     //SOLUCION: 97902809384118
