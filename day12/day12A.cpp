@@ -6,11 +6,11 @@
 
 using namespace std;
 
-#define LOG_OPERACIONES_BASICAS
-#define LOG_ERROR_ENCONTRADO
-#define LOG_ENCONTRADO
-#define LOG_PARCIAL
-#define LOG_CALCULOS
+// #define LOG_OPERACIONES_BASICAS
+// #define LOG_ERROR_ENCONTRADO
+// #define LOG_ENCONTRADO
+// #define LOG_PARCIAL
+// #define LOG_CALCULOS
 
 #define PATH_FICHERO "input.txt"
 // #define PATH_FICHERO "testA1.txt"
