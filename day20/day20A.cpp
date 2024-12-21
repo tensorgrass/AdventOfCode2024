@@ -8,12 +8,6 @@
 
 using namespace std;
 
-struct Respuesta {
-    bool encontrado;
-    bool con_aciertos;
-    int patron_size;
-};
-
 #define LOG_OPERACIONES_BASICAS
 #define LOG_ERROR_ENCONTRADO
 #define LOG_INTERMEDIO
@@ -198,7 +192,7 @@ int main() {
 
     std::cout << "Total: " << std::chrono::duration<double, std::milli>(std::chrono::steady_clock::now() - start).count() << " ms" << std::endl;
     cout << "Total diseños correctos: " << total << endl;
-    //SOLUCION: 
+    //SOLUCION: 1399
 }
 
 

@@ -8,12 +8,6 @@
 
 using namespace std;
 
-struct Respuesta {
-    bool encontrado;
-    bool con_aciertos;
-    int patron_size;
-};
-
 #define LOG_OPERACIONES_BASICAS
 #define LOG_ERROR_ENCONTRADO
 #define LOG_INTERMEDIO
@@ -57,8 +51,8 @@ void busca_camino_con_atajo(std::vector<std::string> &mapa, int f, int c, std::v
         return;
     }
 
-    for (int i = 0; i < num_lineas ; ++i) {
-        for (int j = 0; j < num_columnas; ++j) {
+    for (int i = 1; i < num_lineas - 1; ++i) {
+        for (int j = 1; j < num_columnas - 1; ++j) {
             int camino_atajo = abs(f - i) + abs(c - j);
             if (camino[i][j] > profundidad && camino_atajo <= 20) {
                 int mejora = camino[i][j] - profundidad - camino_atajo;
@@ -167,7 +161,7 @@ int main() {
 
     std::cout << "Total: " << std::chrono::duration<double, std::milli>(std::chrono::steady_clock::now() - start).count() << " ms" << std::endl;
     cout << "Total diseños correctos: " << total << endl;
-    //SOLUCION: 
+    //SOLUCION: 994807
 }
 
 
