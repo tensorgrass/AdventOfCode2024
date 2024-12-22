@@ -45,48 +45,6 @@ int mod(int a, int b) {
     return resultado;
 }
 
-int buscaCaminos(int r, int c, int direction, int score, int destino,vector<Move> &moveQueue, vector<string> &map, vector<vector<int>> &camino_mapa, vector<vector<vector<int>>> &minDistance) {
-    if (score == destino && map[r][c] == 'E') {
-        camino_mapa[r][c] = 1;
-        return 1;
-    }
-    if (score >= destino) {
-        return 0;
-    }
-    if (map[r][c] == '#') {
-        return 0;
-    }
-    // en Dijkstra, calculamos la puntuación mínima para una fila, columna, dirección, por lo que si estamos por encima de eso, no estamos en el mejor camino
-    if (score > minDistance[r][c][direction]) {
-        return 0;
-    }
-    minDistance[r][c][direction] = score;
-    int mejor_camino = 0;
-    if (direction == NORTE) {
-        mejor_camino = buscaCaminos(r-1, c, direction, score+1, destino, moveQueue, map, camino_mapa, minDistance);
-    }
-    if (direction == ESTE) {
-        mejor_camino = buscaCaminos(r, c+1, direction, score+1, destino, moveQueue, map, camino_mapa, minDistance);
-    }
-    if (direction == SUR) {
-        mejor_camino = buscaCaminos(r+1, c, direction, score+1, destino, moveQueue, map, camino_mapa, minDistance);
-    }
-    if (direction == OESTE) {
-        mejor_camino = buscaCaminos(r, c-1, direction, score+1, destino, moveQueue, map, camino_mapa, minDistance);
-    }
-    if (buscaCaminos(r, c, mod(direction+1,4), score+1000, destino, moveQueue, map, camino_mapa, minDistance)) {
-        mejor_camino = 1;
-    }
-    if (buscaCaminos(r, c, mod(direction-1,4), score+1000, destino, moveQueue, map, camino_mapa, minDistance)) {
-        mejor_camino = 1;
-    }
-    
-    if (mejor_camino) {
-        camino_mapa[r][c] = 1;
-    }
-    return mejor_camino;
-}
-
 void shiftUp(int index, vector<Move> &moveQueue, int &queueSize) {
     while (index > 0 && moveQueue[(index - 1) / 2].score > moveQueue[index].score) {
         Move temp = moveQueue[index];
